@@ -7,7 +7,7 @@ import java.net.URL;
 import java.util.Base64;
 
 public class HttpRequest {
-    private static String basicAuth = "token " + "54ae23c509879a3bc7865face8a0246d81f1fdaa";
+    private static String basicAuth = "token " + "757b55e6c08ad07e5942711bdbdfcb758c96ef70 ";
 
     public static InputStream sendHttpRequest(String url) throws IOException {
         URL obj = new URL(url);
@@ -19,7 +19,7 @@ public class HttpRequest {
         if (responseCode == HttpURLConnection.HTTP_OK) { // success
             return httpURLConnection.getInputStream();
         } else {
-            throw new RuntimeException();
+            throw new RuntimeException("Http error" + responseCode);
         }
     }
 }
