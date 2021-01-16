@@ -13,7 +13,7 @@ public class HttpRequest {
         URL obj = new URL(url);
         HttpURLConnection httpURLConnection = (HttpURLConnection) obj.openConnection();
         httpURLConnection.setRequestMethod("GET");
-        httpURLConnection.setRequestProperty("Authorization", basicAuth);
+        // httpURLConnection.setRequestProperty("Authorization", basicAuth);
         httpURLConnection.setRequestProperty("accept", "application/vnd.github.v3+json");
         int responseCode = httpURLConnection.getResponseCode();
         if (responseCode == HttpURLConnection.HTTP_OK) { // success
