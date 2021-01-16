@@ -26,10 +26,10 @@ public class Main {
         for (int i = 0; i < mostFiveRepo.size(); i++) {
             String format = mostFiveRepo.get(i).toString();
             InputStream repoContributors = HttpRequest.sendHttpRequest(APIs.generateUrlForContributors(mostFiveRepo.get(i).getRepoName()));
-            List<Contributors> topTenContrubutors = ContributorsUtils.getMostTenContributors(JsonParserUtils.inputStreamToJsonArray(repoContributors));
-            for (int j = 0; j < topTenContrubutors.size(); j++) {
-                InputStream contributor = HttpRequest.sendHttpRequest(APIs.generateUrlForUserName(topTenContrubutors.get(j).getLoginName()));
-                String finalUser = format + Contributor.convert(JsonParserUtils.inputStreamToJsonObject(contributor)).toString() + " contribution: " + topTenContrubutors.get(j).getContributions();
+            List<Contributors> topTenContributors = ContributorsUtils.getMostTenContributors(JsonParserUtils.inputStreamToJsonArray(repoContributors));
+            for (int j = 0; j < topTenContributors.size(); j++) {
+                InputStream contributor = HttpRequest.sendHttpRequest(APIs.generateUrlForUserName(topTenContributors.get(j).getLoginName()));
+                String finalUser = format + Contributor.convert(JsonParserUtils.inputStreamToJsonObject(contributor)).toString() + " contribution: " + topTenContributors.get(j).getContributions();
                 printWriter.println(finalUser);
             }
             printWriter.println("-----");
